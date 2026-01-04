@@ -157,6 +157,21 @@ extension GroupSessionMessengerMock {
                 }
             }
             
+//            public func next() async -> Messages<Message>.Element? {
+//                if var iterator = self.iterator {
+//                    if let element = await iterator.next() {
+//                        return (element.0, MockMessageContext(source: ParticipantMock.pack(element.1.source)))
+//                    } else {
+//                        return nil
+//                    }
+//                }
+//                else if let element = await streamIterator?.next() {
+//                    return element
+//                }
+//                
+//                return nil
+//            }
+            
             public func next() async -> Messages<Message>.Element? {
                 if var iterator = self.iterator {
                     if let element = await iterator.next() {
@@ -165,11 +180,13 @@ extension GroupSessionMessengerMock {
                         return nil
                     }
                 }
-                else if let element = await streamIterator?.next() {
-                    return element
+                else {
+                    // 使用 Task 来隔离访问
+                    return await Task { [streamIterator] in
+                        var iterator = streamIterator
+                        return await iterator?.next()
+                    }.value
                 }
-                
-                return nil
             }
             
             func add(_ element: Element) {

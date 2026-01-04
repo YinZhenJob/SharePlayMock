@@ -183,12 +183,12 @@ extension GroupSessionMock {
                         webSocket.send(command)
                     }
                     
-                    if let session = await streamIterator?.next() {
-                        return session
-                    }
+                    // 使用 Task 来隔离访问
+                    return await Task { [streamIterator] in
+                        var iterator = streamIterator
+                        return await iterator?.next()
+                    }.value
                 }
-                
-                return nil
             }
             
             func add(_ element: Element) {
