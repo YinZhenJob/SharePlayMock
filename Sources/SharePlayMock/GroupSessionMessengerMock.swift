@@ -8,7 +8,7 @@
 import Foundation
 import GroupActivities
 
-@available(iOS 15, macOS 12, tvOS 15, *)
+@available(iOS 15, macOS 12, tvOS 15, visionOS 26, *)
 public class GroupSessionMessengerMock {
     
     private var activityIdentifier: String
@@ -61,7 +61,7 @@ public class GroupSessionMessengerMock {
     }
 }
 
-@available(iOS 15, macOS 12, tvOS 15, *)
+@available(iOS 15, macOS 12, tvOS 15, visionOS 26, *)
 class MessageReceiverRegistry {
     
     static let instance = MessageReceiverRegistry()
@@ -92,12 +92,12 @@ class MessageReceiverRegistry {
     }
 }
 
-@available(iOS 15, macOS 12, tvOS 15, *)
+@available(iOS 15, macOS 12, tvOS 15, visionOS 26, *)
 protocol MessageReceiver {
     func receive(message: String, participant: ParticipantMock)
 }
 
-@available(iOS 15, macOS 12, tvOS 15, *)
+@available(iOS 15, macOS 12, tvOS 15, visionOS 26, *)
 extension GroupSessionMessengerMock {
 
     public struct MockMessageContext {
@@ -105,7 +105,7 @@ extension GroupSessionMessengerMock {
     }
 }
 
-@available(iOS 15, macOS 12, tvOS 15, *)
+@available(iOS 15, macOS 12, tvOS 15, visionOS 26, *)
 extension GroupSessionMessengerMock {
     
     public struct Messages<Message> : AsyncSequence, MessageReceiver where Message : Codable {
@@ -232,7 +232,7 @@ struct MessageCodec {
     }
 }
 
-@available(iOS 15, macOS 12, tvOS 15, *)
+@available(iOS 15, macOS 12, tvOS 15, visionOS 26, *)
 extension SharePlayMockManager {
 
     func sendMessage<Message>(_ value: Message, activityIdentifier: String, sessionId: UUID, participantIds: [String]?) where Message: Codable {

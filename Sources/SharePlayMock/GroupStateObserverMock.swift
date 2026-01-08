@@ -9,7 +9,7 @@ import Foundation
 import Combine
 import GroupActivities
 
-@available(iOS 15, macOS 12, tvOS 15, *)
+@available(iOS 15, macOS 12, tvOS 15, visionOS 26, *)
 final public class GroupStateObserverMock : ObservableObject {
 
     @Published final public private(set) var isEligibleForGroupSession: Bool
@@ -38,7 +38,7 @@ final public class GroupStateObserverMock : ObservableObject {
     }
 }
 
-@available(iOS 15, macOS 12, tvOS 15, *)
+@available(iOS 15, macOS 12, tvOS 15, visionOS 26, *)
 extension SharePlayMockManager {
     
     func register(_ observer: GroupStateObserverMock) {

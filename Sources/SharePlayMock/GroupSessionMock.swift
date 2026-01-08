@@ -9,7 +9,7 @@ import Foundation
 import GroupActivities
 import Combine
 
-@available(iOS 15, macOS 12, tvOS 15, *)
+@available(iOS 15, macOS 12, tvOS 15, visionOS 26, *)
 final public class GroupSessionMock<M: GroupActivityMock> : ObservableObject {
     
     public typealias ActivityType = M.ActivityType
@@ -51,6 +51,10 @@ final public class GroupSessionMock<M: GroupActivityMock> : ObservableObject {
                 return ParticipantMock(id: groupSession!.localParticipant.id)
             }
         }
+    }
+    
+    public var isLocallyInitiated: Bool {
+        return groupSession?.isLocallyInitiated ?? false
     }
     
     init(session: GroupSession<ActivityType>) {
@@ -104,7 +108,7 @@ final public class GroupSessionMock<M: GroupActivityMock> : ObservableObject {
 }
 
 
-@available(iOS 15, macOS 12, tvOS 15, *)
+@available(iOS 15, macOS 12, tvOS 15, visionOS 26,  *)
 extension GroupSessionMock {
     
     public struct Sessions : AsyncSequence {
@@ -206,7 +210,7 @@ enum SessionError: Error {
     case end(String)
 }
 
-@available(iOS 15, macOS 12, tvOS 15, *)
+@available(iOS 15, macOS 12, tvOS 15, visionOS 26, *)
 extension SharePlayMockManager {
     
     func join<T: GroupActivityMock>(session: GroupSessionMock<T>) {

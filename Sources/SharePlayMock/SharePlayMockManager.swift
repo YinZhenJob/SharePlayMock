@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-@available(iOS 15, macOS 12, tvOS 15, *)
+@available(iOS 15, macOS 12, tvOS 15, visionOS 26, *)
 public class SharePlayMockManager: ObservableObject {
     
     private static let instance = SharePlayMockManager()

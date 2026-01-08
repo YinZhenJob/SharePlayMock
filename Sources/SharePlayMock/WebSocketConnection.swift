@@ -8,7 +8,7 @@
 import Foundation
 import Starscream
 
-@available(iOS 15, macOS 12, tvOS 15, *)
+@available(iOS 15, macOS 12, tvOS 15, visionOS 26, *)
 class WebSocketConnection: WebSocketDelegate {
     
     private var socket: WebSocket
@@ -60,7 +60,7 @@ class WebSocketConnection: WebSocketDelegate {
     }
 }
 
-@available(iOS 15, macOS 12, tvOS 15, *)
+@available(iOS 15, macOS 12, tvOS 15, visionOS 26, *)
 extension SharePlayMockManager {
     func onReceiveNotification(_ notification: WebSocketMessage) {
         switch notification.type {

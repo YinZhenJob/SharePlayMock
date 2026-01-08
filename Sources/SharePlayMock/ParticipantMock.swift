@@ -8,7 +8,7 @@
 import Foundation
 import GroupActivities
 
-@available(iOS 15, macOS 12, tvOS 15, *)
+@available(iOS 15, macOS 12, tvOS 15, visionOS 26, *)
 public class ParticipantMock : Hashable, Identifiable {
     
     public typealias ID = UUID
@@ -41,8 +41,13 @@ public class ParticipantMock : Hashable, Identifiable {
     static func pack(_ participant: Participant) -> ParticipantMock{
         return ParticipantMock(id: participant.id, raw: participant)
     }
+    
+    public var isNearbyWithLocalParticipant: Bool {
+        return raw?.isNearbyWithLocalParticipant ?? false
+    }
 }
 
+@available(visionOS 26, *)
 extension ParticipantMock {
     static func toRaw(_ participants: Participants) -> GroupActivities.Participants {
         switch participants {
@@ -57,6 +62,7 @@ extension ParticipantMock {
     }
 }
 
+@available(visionOS 26, *)
 public enum Participants {
 
     case all

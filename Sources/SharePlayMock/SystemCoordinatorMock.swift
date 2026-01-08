@@ -9,7 +9,7 @@ import GroupActivities
 import Spatial
 import SwiftUI
 
-@available(visionOS 1.0, *)
+@available(visionOS 26, *)
 @available(iOS, unavailable)
 @available(watchOS, unavailable)
 @available(tvOS, unavailable)
@@ -63,14 +63,14 @@ public class SystemCoordinatorMock {
         self.raw = raw
     }
     
-    @available(visionOS 2.0, *)
+    @available(visionOS 26, *)
     final public func assignRole(_ role: some SpatialTemplateRole) {
         if (SharePlayMockManager.useMock() == nil) {
             raw?.assignRole(role)
         }
     }
 
-    @available(visionOS 2.0, *)
+    @available(visionOS 26, *)
     final public func resignRole() {
         if (SharePlayMockManager.useMock() == nil) {
             raw?.resignRole()
@@ -79,7 +79,7 @@ public class SystemCoordinatorMock {
     
 }
 
-@available(visionOS 1.0, *)
+@available(visionOS 26, *)
 @available(iOS, unavailable)
 @available(watchOS, unavailable)
 @available(tvOS, unavailable)
@@ -225,7 +225,7 @@ extension SystemCoordinatorMock {
     }
 }
 
-@available(visionOS 2.0, *)
+@available(visionOS 26, *)
 @available(iOS, unavailable)
 @available(watchOS, unavailable)
 @available(tvOS, unavailable)
