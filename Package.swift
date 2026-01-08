@@ -18,8 +18,8 @@ let package = Package(
     ],
     dependencies: [
         .package(
-            url: "https://github.com/YinZhenJob/SharePlayMock",
-            from: "4.0.9")
+            url: "https://gitee.com/nikopeng/Starscream",
+            from: "4.0.8")
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
